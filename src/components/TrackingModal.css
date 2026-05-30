@@ -1,0 +1,250 @@
+.tracking-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.tracking-modal {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.tracking-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tracking-header h2 {
+  margin: 0;
+  color: #333333;
+  font-size: 1.5rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666666;
+  padding: 0;
+}
+
+.close-btn:hover {
+  color: #333333;
+}
+
+.tracking-body {
+  padding: 2rem;
+}
+
+.shipment-info {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.info-value {
+  color: #333333;
+  font-size: 0.95rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: fit-content;
+}
+
+.status-processing {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-shipped {
+  background-color: #e7d4f5;
+  color: #6c3483;
+}
+
+.status-in-transit {
+  background-color: #cfe2ff;
+  color: #084298;
+}
+
+.status-out-for-delivery {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-delivered {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.tracking-timeline {
+  margin-bottom: 2rem;
+}
+
+.tracking-timeline h3 {
+  color: #333333;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.timeline-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 40px;
+  width: 2px;
+  height: 30px;
+  background-color: #dee2e6;
+}
+
+.timeline-item.completed::after {
+  background-color: #28a745;
+}
+
+.timeline-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #dee2e6;
+  color: #495057;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px #dee2e6;
+}
+
+.timeline-item.completed .timeline-dot {
+  background-color: #28a745;
+  color: white;
+  box-shadow: 0 0 0 2px #28a745;
+}
+
+.timeline-content {
+  padding-top: 0.4rem;
+}
+
+.timeline-step {
+  margin: 0;
+  font-weight: 600;
+  color: #333333;
+  font-size: 0.95rem;
+}
+
+.timeline-current {
+  margin: 0.4rem 0 0 0;
+  color: #28a745;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.tracking-dates {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.date-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-label {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.date-value {
+  color: #333333;
+  font-size: 0.95rem;
+}
+
+.tracking-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-close {
+  padding: 0.75rem 2rem;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-close:hover {
+  background-color: #5568d3;
+}
+
+@media (max-width: 768px) {
+  .shipment-info,
+  .tracking-dates {
+    grid-template-columns: 1fr;
+  }
+}
