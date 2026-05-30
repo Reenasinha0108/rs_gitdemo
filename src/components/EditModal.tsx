@@ -20,6 +20,7 @@ const EditModal: React.FC<EditModalProps> = ({ shipment, onClose, onSave }) => {
   const handleSave = async (): Promise<void> => {
     try {
       setIsLoading(true);
+      setError('');
       await onSave({
         status,
         arrivalDate,
@@ -30,6 +31,11 @@ const EditModal: React.FC<EditModalProps> = ({ shipment, onClose, onSave }) => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleCancel = (): void => {
+    setError('');
+    onClose();
   };
 
   return (
@@ -77,7 +83,7 @@ const EditModal: React.FC<EditModalProps> = ({ shipment, onClose, onSave }) => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="status">Status *</label>
+              <label htmlFor="status">Status</label>
               <select
                 id="status"
                 value={status}
@@ -99,7 +105,7 @@ const EditModal: React.FC<EditModalProps> = ({ shipment, onClose, onSave }) => {
               <input
                 id="price"
                 type="text"
-                value={shipment.price}
+                value={`${shipment.price}00`}
                 disabled
                 className="form-input"
               />
@@ -135,6 +141,7 @@ const EditModal: React.FC<EditModalProps> = ({ shipment, onClose, onSave }) => {
                 value={assignee}
                 onChange={(e) => setAssignee(e.target.value)}
                 className="form-input"
+                placeholder="Enter assignee name"
               />
             </div>
           </div>
@@ -164,7 +171,7 @@ const EditModal: React.FC<EditModalProps> = ({ shipment, onClose, onSave }) => {
         </div>
 
         <div className="modal-footer">
-          <button onClick={onClose} className="btn-cancel">
+          <button onClick={handleCancel} className="btn-cancel">
             Cancel
           </button>
           <button onClick={handleSave} disabled={isLoading} className="btn-save">
